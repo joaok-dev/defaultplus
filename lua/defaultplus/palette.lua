@@ -28,6 +28,8 @@ local colors = {
 	match_bg = "#194765",
 	match = "#29a9ff",
 
+	prompt_bg = "#2d3149",
+
 	hint = "#4bc1fe",
 	info = "#FFCC66",
 	warn = "#ff8800",

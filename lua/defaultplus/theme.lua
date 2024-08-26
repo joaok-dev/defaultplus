@@ -282,20 +282,19 @@ theme.set_highlights = function()
 	------------
 	-- Telescope
 	------------
-	hl(0, "TelescopeNormal", { fg = c.fg, bg = c.bg })                  -- Telescope normal foreground and background
-	hl(0, "TelescopeBorder", { fg = c.cyan, bg = c.bg })                -- Telescope border foreground and background (cyan)
-	hl(0, "TelescopePromptBorder", { fg = c.purple, bg = c.bg })        -- Telescope prompt border (purple)
-	hl(0, "TelescopeResultsBorder", { fg = c.cyan, bg = c.bg })         -- Telescope results border (cyan)
-	hl(0, "TelescopePreviewBorder", { fg = c.cyan, bg = c.bg })         -- Telescope preview border (cyan)
-	hl(0, "TelescopeSelection", { bg = c.select, bold = true })         -- Telescope selection background (bold)
-	hl(0, "TelescopeSelectionCaret", { fg = c.purple, bg = c.select })  -- Telescope selection caret foreground and background (purple)
-	hl(0, "TelescopeMatching", { fg = c.yellow, bold = true, italic = true }) -- Telescope matching foreground, bold, and italic (yellow)
-	hl(0, "TelescopePromptTitle", { fg = c.purple, bold = true })       -- Telescope prompt title foreground (purple, bold)
-	hl(0, "TelescopePromptPrefix", { fg = c.cyan })                     -- Telescope prompt prefix foreground (cyan)
-	hl(0, "TelescopeResultsTitle", { fg = c.cyan, bold = true })        -- Telescope results title foreground (cyan, bold)
-	hl(0, "TelescopePreviewTitle", { fg = c.cyan, bold = true })        -- Telescope preview title foreground (cyan, bold)
-	hl(0, "TelescopePromptCounter", { fg = c.purple, italic = true })   -- Telescope prompt counter foreground (purple, italic)
-	hl(0, "TelescopePreviewHyphen", { fg = c.light_grey_4 })            -- Telescope preview hyphen foreground (light_grey_4)
+	hl(0, "TelescopeNormal", { fg = c.fg, bg = c.bg_dark })
+	hl(0, "TelescopeBorder", { fg = c.bg_dark, bg = c.bg_dark })
+	hl(0, "TelescopePromptNormal", { bg = c.prompt_bg })
+	hl(0, "TelescopePromptBorder", { fg = c.prompt_bg, bg = c.prompt_bg })
+	hl(0, "TelescopePromptTitle", { fg = c.orange, bg = c.fg_gutter, bold = true })
+	hl(0, "TelescopePreviewTitle", { fg = c.bg_dark, bg = c.bg_dark })
+	hl(0, "TelescopeResultsTitle", { fg = c.bg_dark, bg = c.bg_dark })
+	hl(0, "TelescopeSelection", { bg = c.select, bold = true })
+	hl(0, "TelescopeSelectionCaret", { fg = c.purple, bg = c.select })
+	hl(0, "TelescopeMatching", { fg = c.yellow, bold = true, italic = true })
+	hl(0, "TelescopePromptPrefix", { fg = c.cyan, bg = c.prompt_bg })
+	hl(0, "TelescopePromptCounter", { fg = c.purple, italic = true })
+	hl(0, "TelescopePreviewHyphen", { fg = c.light_grey_4 })
 
 	---------
 	-- Buffer
@@ -431,46 +430,44 @@ theme.set_highlights = function()
 	hl(0, "@lsp.typemod.function.global.lua", { fg = c.blue, bold = true }) -- Lua global function
 	hl(0, "@lsp.typemod.variable.declaration.lua", { fg = c.yellow, italic = true }) -- Lua variable declaration
 
-	-- C
-	hl(0, "cInclude", { fg = c.purple, bold = true })                    -- C include statements
-	hl(0, "cStorageClass", { fg = c.cyan })                              -- C storage class keywords
-	hl(0, "cTypedef", { fg = c.cyan, italic = true })                    -- C typedef keywords
-	hl(0, "cDefine", { fg = c.yellow, bold = true })                     -- C #define statements
-	hl(0, "@include.c", { fg = c.purple, bold = true })                  -- C include (TreeSitter)
-	hl(0, "@constant.c", { fg = c.blue })                                -- C constants (TreeSitter)
-	hl(0, "@constant.macro.c", { fg = c.yellow, bold = true })           -- C macro constants (TreeSitter)
-	hl(0, "@operator.c", { fg = c.cyan })                                -- C operators (TreeSitter)
-	hl(0, "@type.c", { fg = c.cyan })                                    -- C types (TreeSitter)
-	hl(0, "@function.c", { fg = c.blue, bold = true })                   -- C functions (TreeSitter)
-	hl(0, "@variable.c", { fg = c.fg })                                  -- C variables (TreeSitter)
-	hl(0, "@keyword.c", { fg = c.purple })                               -- C keywords (TreeSitter)
+	-- C 
+	hl(0, "@lsp.type.macro.c", { fg = c.yellow, bold = true })
+	hl(0, "@lsp.type.type.c", { fg = c.cyan })
+	hl(0, "@lsp.type.function.c", { fg = c.blue, bold = true })
+	hl(0, "@lsp.type.variable.c", { fg = c.fg })
+	hl(0, "@lsp.type.parameter.c", { fg = c.fg, italic = true })
+	hl(0, "@lsp.type.property.c", { fg = c.blue })
+	hl(0, "@lsp.type.namespace.c", { fg = c.purple, italic = true })
+	hl(0, "@lsp.typemod.function.global.c", { fg = c.blue, bold = true })
+	hl(0, "@lsp.typemod.variable.static.c", { fg = c.purple, italic = true })
+	hl(0, "@lsp.typemod.variable.constant.c", { fg = c.cyan, bold = true })
+	hl(0, "@lsp.mod.readonly.c", { fg = c.cyan, bold = true })
 
-	-- C++
-	hl(0, "cppStatement", { fg = c.purple, bold = true })                -- C++ statements
-	hl(0, "@include.cpp", { fg = c.purple, bold = true })                -- C++ include (TreeSitter)
-	hl(0, "@constant.cpp", { fg = c.blue })                              -- C++ constants (TreeSitter)
-	hl(0, "@constant.macro.cpp", { fg = c.yellow, bold = true })         -- C++ macro constants (TreeSitter)
-	hl(0, "@operator.cpp", { fg = c.cyan })                              -- C++ operators (TreeSitter)
-	hl(0, "@type.cpp", { fg = c.cyan })                                  -- C++ types (TreeSitter)
-	hl(0, "@function.cpp", { fg = c.blue, bold = true })                 -- C++ functions (TreeSitter)
-	hl(0, "@variable.cpp", { fg = c.fg })                                -- C++ variables (TreeSitter)
-	hl(0, "@keyword.cpp", { fg = c.purple })                             -- C++ keywords (TreeSitter)
-	hl(0, "@namespace.cpp", { fg = c.yellow, italic = true })            -- C++ namespaces (TreeSitter)
-	hl(0, "@class.cpp", { fg = c.cyan, bold = true })                    -- C++ classes (TreeSitter)
+	-- C++ 
+	hl(0, "@lsp.type.class.cpp", { fg = c.cyan, bold = true })
+	hl(0, "@lsp.type.enum.cpp", { fg = c.cyan })
+	hl(0, "@lsp.type.function.cpp", { fg = c.blue, bold = true })
+	hl(0, "@lsp.type.variable.cpp", { fg = c.fg })
+	hl(0, "@lsp.type.parameter.cpp", { fg = c.fg, italic = true })
+	hl(0, "@lsp.type.property.cpp", { fg = c.blue })
+	hl(0, "@lsp.type.namespace.cpp", { fg = c.yellow, italic = true })
+	hl(0, "@lsp.typemod.function.method.cpp", { fg = c.blue })
+	hl(0, "@lsp.typemod.variable.static.cpp", { fg = c.purple, italic = true })
+	hl(0, "@lsp.typemod.variable.constant.cpp", { fg = c.cyan, bold = true })
+	hl(0, "@lsp.mod.abstract.cpp", { fg = c.purple, italic = true })
 
-	-- Python
-	hl(0, "pythonStatement", { fg = c.purple })                             -- Python statements
-	hl(0, "pythonOperator", { fg = c.cyan })                                -- Python operators
-	hl(0, "pythonException", { fg = c.red, bold = true })                   -- Python exceptions
-	hl(0, "pythonExClass", { fg = c.cyan })                                 -- Python exception classes
-	hl(0, "pythonBuiltinObj", { fg = c.blue })                              -- Python built-in objects
-	hl(0, "pythonBuiltinType", { fg = c.cyan })                             -- Python built-in types
-	hl(0, "pythonBoolean", { fg = c.purple })                               -- Python booleans
-	hl(0, "pythonNone", { fg = c.purple })                                  -- Python None
-	hl(0, "pythonTodo", { fg = c.yellow, bold = true })                     -- Python TODO comments
-	hl(0, "pythonClassVar", { fg = c.blue })                                -- Python class variables
-	hl(0, "pythonClassDef", { fg = c.cyan, bold = true })                   -- Python class definitions
-	hl(0, "@constructor.python", { fg = c.yellow })                         -- Python constructors
+	-- Python 
+	hl(0, "@lsp.type.function.python", { fg = c.blue, bold = true })
+	hl(0, "@lsp.type.method.python", { fg = c.blue })
+	hl(0, "@lsp.type.variable.python", { fg = c.fg })
+	hl(0, "@lsp.type.parameter.python", { fg = c.fg, italic = true })
+	hl(0, "@lsp.type.property.python", { fg = c.blue })
+	hl(0, "@lsp.type.class.python", { fg = c.cyan, bold = true })
+	hl(0, "@lsp.typemod.function.builtin.python", { fg = c.cyan, bold = true })
+	hl(0, "@lsp.typemod.variable.global.python", { fg = c.purple, italic = true })
+	hl(0, "@lsp.typemod.variable.constant.python", { fg = c.cyan, bold = true })
+	hl(0, "@lsp.mod.decorator.python", { fg = c.yellow, italic = true })
+	hl(0, "@lsp.type.builtinType.python", { fg = c.cyan })
 
 	-- -- Typescript
 	-- hl(0, "@lsp.type.interface.typescriptreact", { fg = c.cyan, bg = "NONE" })
