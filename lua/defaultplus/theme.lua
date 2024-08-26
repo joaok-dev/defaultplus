@@ -458,6 +458,20 @@ theme.set_highlights = function()
 	hl(0, "@namespace.cpp", { fg = c.yellow, italic = true })            -- C++ namespaces (TreeSitter)
 	hl(0, "@class.cpp", { fg = c.cyan, bold = true })                    -- C++ classes (TreeSitter)
 
+	-- Python
+	hl(0, "pythonStatement", { fg = c.purple })                             -- Python statements
+	hl(0, "pythonOperator", { fg = c.cyan })                                -- Python operators
+	hl(0, "pythonException", { fg = c.red, bold = true })                   -- Python exceptions
+	hl(0, "pythonExClass", { fg = c.cyan })                                 -- Python exception classes
+	hl(0, "pythonBuiltinObj", { fg = c.blue })                              -- Python built-in objects
+	hl(0, "pythonBuiltinType", { fg = c.cyan })                             -- Python built-in types
+	hl(0, "pythonBoolean", { fg = c.purple })                               -- Python booleans
+	hl(0, "pythonNone", { fg = c.purple })                                  -- Python None
+	hl(0, "pythonTodo", { fg = c.yellow, bold = true })                     -- Python TODO comments
+	hl(0, "pythonClassVar", { fg = c.blue })                                -- Python class variables
+	hl(0, "pythonClassDef", { fg = c.cyan, bold = true })                   -- Python class definitions
+	hl(0, "@constructor.python", { fg = c.yellow })                         -- Python constructors
+
 	-- -- Typescript
 	-- hl(0, "@lsp.type.interface.typescriptreact", { fg = c.cyan, bg = "NONE" })
 	-- hl(0, "@lsp.type.namespace.typescriptreact", { fg = c.cyan, bg = "NONE" })
