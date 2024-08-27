@@ -282,20 +282,22 @@ theme.set_highlights = function()
 	------------
 	-- Telescope
 	------------
-	hl(0, "TelescopeNormal", { fg = c.fg, bg = c.bg_dark })
-	hl(0, "TelescopeBorder", { fg = c.bg_dark, bg = c.bg_dark })
-	hl(0, "TelescopePromptNormal", { bg = c.prompt_bg })
-	hl(0, "TelescopePromptBorder", { fg = c.prompt_bg, bg = c.prompt_bg })
-	hl(0, "TelescopePromptTitle", { fg = c.orange, bg = c.fg_gutter, bold = true })
-	hl(0, "TelescopePreviewTitle", { fg = c.bg_dark, bg = c.bg_dark })
-	hl(0, "TelescopeResultsTitle", { fg = c.bg_dark, bg = c.bg_dark })
+
+	hl(0, "TelescopeNormal", { fg = c.fg, bg = c.telescope_bg })
+	hl(0, "TelescopeBorder", { fg = c.bg, bg = c.bg })
+	hl(0, "TelescopePromptNormal", { fg = c.fg, bg = c.telescope_bg })
+	hl(0, "TelescopePromptBorder", { fg = c.telescope_bg, bg = c.telescope_bg })
+	hl(0, "TelescopePromptTitle", { fg = c.purple, bg = c.fg_gutter, bold = true })
+	hl(0, "TelescopePreviewTitle", { fg = c.bg, bg = c.bg })
+	hl(0, "TelescopeResultsTitle", { fg = c.bg, bg = c.bg })
+	hl(0, "TelescopePreviewBorder", { fg = c.bg, bg = c.bg })
+	hl(0, "TelescopeResultsBorder", { fg = c.bg, bg = c.bg })
 	hl(0, "TelescopeSelection", { bg = c.select, bold = true })
 	hl(0, "TelescopeSelectionCaret", { fg = c.purple, bg = c.select })
 	hl(0, "TelescopeMatching", { fg = c.yellow, bold = true, italic = true })
-	hl(0, "TelescopePromptPrefix", { fg = c.cyan, bg = c.prompt_bg })
-	hl(0, "TelescopePromptCounter", { fg = c.purple, italic = true })
+	hl(0, "TelescopePromptPrefix", { fg = c.cyan, bg = c.telescope_bg })
+	hl(0, "TelescopePromptCounter", { fg = c.purple, bg = c.telescope_bg, italic = true })
 	hl(0, "TelescopePreviewHyphen", { fg = c.light_grey_4 })
-
 	---------
 	-- Buffer
 	---------
